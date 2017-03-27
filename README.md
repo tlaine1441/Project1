@@ -4,5 +4,5 @@
 # [Link to my Trell Board](https://trello.com/b/jMvmFpvC/wdi-project-1)
 
 ![](images/wireframes/character-name.png)
-![](images/wireframes/weapon-choice.png)
+![](images/wireframes/weapon-select.png)
 ![](images/wireframes/main-ui.png)
