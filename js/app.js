@@ -120,7 +120,9 @@ const hidePlayBtn = function() {
 }
 
 const showGame = function() {
-	 document.getElementById('main-game').className="show-div";  
+	 document.getElementById('main-game').className="show-div";
+	 let body = document.getElementById("body");
+	 body.style.background = "url('images/background/background.jpg') no-repeat center center fixed"; 
 }
 
 
