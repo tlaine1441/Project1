@@ -6,22 +6,20 @@
 </head>
 <body>
 	<div id="name-container" class="name-container show-div">
-		<input id="characterNameInput" type="text" placeholder="Character Name">
+		<input id="characterNameInput" type="text" placeholder="Character Name" required>
 		<button id="continue-btn">Continue</button>
 	</div>
 
 	<div id="ready-to-play" class="ready-to-play hidden-div">
-		<div class="ready-to-play-wrapper">
-		<h1>Ready to play?</h1>
-		<button id="play-btn">Play</button>
+		<div id="ready-to-play-content" class="ready-to-play-wrapper">
 		</div>
 	</div>
 
-	<main>
-		<div id="attack-btn-container" class="hidden-div">
+	<main id="main-game" class="hidden-div">
+		<div id="attack-btn-container" >
 			<button id="attack">Attack</button>
 		</div>
-		<div id="damage-container" class="hidden-div">
+		<div id="damage-container" >
 			<div id="damage"><h1>Damage</h1></div>
 		</div>
 	</main>

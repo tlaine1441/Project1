@@ -51,7 +51,8 @@ body {
 .ready-to-play {
 	text-align: center;
 	width: 50%;
-	margin: 350px auto;
+	margin: 300px auto;
+	padding: 0;
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -59,6 +60,7 @@ body {
 .ready-to-play-wrapper {
 	display: block;
 	width: 100%;
+	padding: 0;
 }
 
 .ready-to-play button {
@@ -72,11 +74,27 @@ body {
 	margin: 0 auto;
 }
 
+.ready-to-play button:hover {
+	background: rgba(28, 255, 28, .75);
+	color: #333;
+}
+
+.ready-to-play button:active {
+	color: #333;
+	background: rgba(28, 255, 28, 1);
+	border: 1px solid rgba(28, 255, 28, 1);
+}
+
 .ready-to-play h1 {
 	display: block;
 	font-size: 60px;
 	color: #ddd;
 	margin-top: 0;
+}
+
+main {
+	background: #ff4040;
+	width: 100%;
 }
 
 
