@@ -123,14 +123,17 @@ const showGame = function() {
 	 document.getElementById('main-game').className="show-div";  
 }
 
-let player1 = createPlayer();
-let monster1 = createMonster();
 
 let nextBtn = document.getElementById("continue-btn");
 nextBtn.addEventListener("click", function() {
 	let characterNameInput = document.getElementById("characterNameInput");
 	let characterName = characterNameInput.value;
-	player1.setName(characterName);
+	if (characterName) {
+		player1.setName(characterName);
+	} else {
+		player1.setName("Player");
+	}
+
 	hideNameInput();
 	showPlayBtn();
 	generateStartBtn();
@@ -205,4 +208,5 @@ const generateStartBtn = function() {
 }
 
 
-
+let player1 = createPlayer();
+let monster1 = createMonster();

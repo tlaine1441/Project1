@@ -6,6 +6,8 @@
 body {
 	background: #333;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 	overflow: hidden;
 }
 
@@ -93,9 +95,36 @@ body {
 }
 
 main {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+nav {
+	margin: 0;
 	background: #ff4040;
 	width: 100%;
+	height: 80px;
+	text-align: center;
 }
+
+nav h1 {
+	margin: 0;
+}
+
+.title {
+	margin: 0 auto;
+	display: inline-block;
+	width: 100px;
+	padding-top: 25px;
+}
+ .save {
+ 	display: inline-block;
+ 	height: 100px;
+ 	float: right;
+ 	padding-top: 15px;
+ }
+
 
 
 .hidden-div {
