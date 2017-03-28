@@ -111,6 +111,10 @@ const hideNameInput = function() {
     document.getElementById('name-container').className='hidden-div';  
 }
 
+const showPlayBtn = function() {
+    document.getElementById('ready-to-play').className="ready-to-play show-div";  
+}
+
 
 let player1 = createPlayer();
 let monster1 = createMonster();
@@ -121,6 +125,7 @@ nextBtn.addEventListener("click", function() {
 	let characterName = characterNameInput.value;
 	player1.setName(characterName);
 	hideNameInput();
+	showPlayBtn();
 	console.log(player1.getName());
 
 });

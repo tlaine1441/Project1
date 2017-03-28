@@ -48,7 +48,42 @@ body {
 	border: 1px solid rgba(28, 255, 28, 1);
 }
 
+.ready-to-play {
+	text-align: center;
+	width: 50%;
+	margin: 350px auto;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+.ready-to-play-wrapper {
+	display: block;
+	width: 100%;
+}
+
+.ready-to-play button {
+	font-size: 25px;
+	padding: 10px 40px;
+	color: rgba(28, 255, 28, 1);
+	background: #333;
+	border: 1px solid rgba(28, 255, 28, 1);
+	border-radius: 4px;
+	display: block;
+	margin: 0 auto;
+}
+
+.ready-to-play h1 {
+	display: block;
+	font-size: 60px;
+	color: #ddd;
+	margin-top: 0;
+}
+
 
 .hidden-div {
 	display: none;
+}
+
+.show-div {
+	display: flex;
 }

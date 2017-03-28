@@ -9,12 +9,22 @@
 		<input id="characterNameInput" type="text" placeholder="Character Name">
 		<button id="continue-btn">Continue</button>
 	</div>
-	<div id="attack-btn-container" class="hidden-div">
-		<button id="attack">Attack</button>
+
+	<div id="ready-to-play" class="ready-to-play hidden-div">
+		<div class="ready-to-play-wrapper">
+		<h1>Ready to play?</h1>
+		<button id="play-btn">Play</button>
+		</div>
 	</div>
-	<div id="damage-container" class="hidden-div">
-		<div id="damage"><h1>Damage</h1></div>
-	</div>
+
+	<main>
+		<div id="attack-btn-container" class="hidden-div">
+			<button id="attack">Attack</button>
+		</div>
+		<div id="damage-container" class="hidden-div">
+			<div id="damage"><h1>Damage</h1></div>
+		</div>
+	</main>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
