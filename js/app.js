@@ -107,15 +107,20 @@ const createMonster = function() {
 	return new Monster(monsterNames[randomGenerator]);
 }
 
+const hideNameInput = function() {
+    document.getElementById('name-container').className='hidden-div';  
+}
+
 
 let player1 = createPlayer();
 let monster1 = createMonster();
 
-let nextBtn = document.getElementById("next");
+let nextBtn = document.getElementById("continue-btn");
 nextBtn.addEventListener("click", function() {
 	let characterNameInput = document.getElementById("characterNameInput");
 	let characterName = characterNameInput.value;
 	player1.setName(characterName);
+	hideNameInput();
 	console.log(player1.getName());
 
 });

@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	background: #333;
+	height: 100%;
+	overflow: hidden;
+}
+
+.name-container {
+	text-align: center;
+	width: 50%;
+	margin: 350px auto;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.name-container input {
+	background: #333;
+	border: none;
+	font-size: 25px;
+	padding: 5px;
+	border-bottom: 1px solid lime;
+	margin-right: 10px;
+	color: lime;
+}
+
+.name-container button {
+	font-size: 25px;
+	padding: 10px;
+	color: rgba(28, 255, 28, 1);
+	background: #333;
+	border: 1px solid rgba(28, 255, 28, 1);
+	border-radius: 4px;
+}
+
+.name-container button:hover {
+	background: rgba(28, 255, 28, .75);
+	color: #333;
+}
+
+.name-container button:active {
+	color: #333;
+	background: rgba(28, 255, 28, 1);
+	border: 1px solid rgba(28, 255, 28, 1);
+}
+
+
+.hidden-div {
+	display: none;
+}
