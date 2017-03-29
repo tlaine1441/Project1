@@ -218,6 +218,30 @@ nav h1 {
 	display: inline-block;
 }
 
+.player-name {
+	display: block;
+	height: 50px;
+	color: #ff0aee;
+	position: fixed;
+    bottom: 150px;
+    left: 35%;
+	transform: translateX(-35%);
+    width: 200px;
+    text-align: center;
+}
+
+.enemy-name {
+	display: block;
+	height: 50px;
+	color: red;
+	position: fixed;
+    bottom: 150px;
+ 	left: 65%;
+	transform: translateX(-65%);
+    width: 200px;
+    text-align: center;
+}
+
 .enemy-health-bar{
 	display: block;
 	height: 50px;

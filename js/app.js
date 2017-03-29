@@ -75,6 +75,10 @@ Player.prototype.displayHealth = function() {
 	playerHealth.textContent = this.health;
 	let playerInitialHealth = document.getElementById("player-initial-health");
 	playerInitialHealth.textContent = this.baseHealth;
+	let namePlate = document.getElementById("player-name");
+	let name = document.createElement("h2");
+	name.textContent = this.name;
+	namePlate.appendChild(name);
 
 }
 
@@ -139,6 +143,11 @@ Monster.prototype.displayHealth = function() {
 	enemyHealth.textContent = this.health;
 	let enemyInitialHealth = document.getElementById("enemy-initial-health");
 	enemyInitialHealth.textContent = this.baseHealth;
+	let namePlate = document.getElementById("enemy-name");
+	let name = document.createElement("h2");
+	name.textContent = this.name;
+	namePlate.appendChild(name);
+
 }
 
 const createPlayer = function() {
@@ -167,7 +176,8 @@ const hidePlayBtn = function() {
 }
 
 const showGame = function() {
-	 document.getElementById('main-game').className="show-div";
+	 document.getElementById('game').className="game show-div";
+	 document.getElementById('nav').className="show-div";
 	 let body = document.getElementById("body");
 	 body.style.background = "url('images/background/background.jpg') no-repeat center center fixed"; 
 }
