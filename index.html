@@ -16,26 +16,33 @@
 		</div>
 	</div>
 
-	<main id="main-game" class="">
+		
 		<nav>
 			<div class="title">
 				<h1>Axiom</h1>
 			</div>
 			<div class="save"><p>Save</p></div>
 		</nav>
-
+		<main id="main-game" class="">
+		<div id="damage-container" class="damage-container" >
+			<div id="damage"><h1>Damage</h1></div>
+		</div>
+		<div id="player-health-bar" class="player-health-bar">
+		<p id="player-health"></p><p> / </p><p id="player-initial-health"></p>
+		</div>
+		<div id="enemy-health-bar" class="enemy-health-bar">
+		<p id="enemy-health"></p><p> / </p><p id="enemy-initial-health"></p>
+		</div>
 		<section id="attack-bar" class="attack-bar">
 			<div id="attack-btn" class="attack">
-				<button class="attack-btn"></button>
+				<button id="attack" class="attack-btn"><div id="countdown" class="countdown "></div></button>
 			</div>
 		</section>
-		<!---<div id="attack-btn-container" >
+		<!--<div id="attack-btn-container" >
+	enemyInitialHealth.textContent = this.baseHealth;
 			<button id="attack">Attack</button>
-		</div>
-		<div id="damage-container" >
-			<div id="damage"><h1>Damage</h1></div>
 		</div>-->
-	</main>
-	<script type="text/javascript" src="js/app.js"></script>
+		
+	</main>	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
