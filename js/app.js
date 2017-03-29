@@ -75,11 +75,14 @@ Player.prototype.displayHealth = function() {
 	playerHealth.textContent = this.health;
 	let playerInitialHealth = document.getElementById("player-initial-health");
 	playerInitialHealth.textContent = this.baseHealth;
+
+}
+
+Player.prototype.namePlate = function() {
 	let namePlate = document.getElementById("player-name");
 	let name = document.createElement("h2");
 	name.textContent = this.name;
 	namePlate.appendChild(name);
-
 }
 
 // Monster Constructor
@@ -143,11 +146,13 @@ Monster.prototype.displayHealth = function() {
 	enemyHealth.textContent = this.health;
 	let enemyInitialHealth = document.getElementById("enemy-initial-health");
 	enemyInitialHealth.textContent = this.baseHealth;
+}
+
+Monster.prototype.namePlate = function() {
 	let namePlate = document.getElementById("enemy-name");
 	let name = document.createElement("h2");
 	name.textContent = this.name;
 	namePlate.appendChild(name);
-
 }
 
 const createPlayer = function() {
@@ -180,17 +185,19 @@ const showGame = function() {
 	 document.getElementById('nav').className="show-div";
 	 let body = document.getElementById("body");
 	 body.style.background = "url('images/background/background.jpg') no-repeat center center fixed"; 
+	 player1.namePlate();
+	 monster1.namePlate();
 }
 
 const countDown = function() {
 	let countDownDiv = document.getElementById("countdown");
 	let count = 3;
-	countDownDiv.textContent = 4;
+	countDownDiv.innerHTML = 4;
 	setInterval(function() {
 		if (count > 0) {
-		 countDownDiv.textContent = count;
+		 countDownDiv.innerHTML = count;
 		} else {
-		countDownDiv.textContent = "";
+		countDownDiv.innerHTML = "";
 		}
 		count--;
 	}, 1000);
@@ -229,24 +236,24 @@ const displayEnemyDamage = function() {
 
 }
 
+const nextBtn = function() {
 
+	let nextBtn = document.getElementById("continue-btn");
+	nextBtn.addEventListener("click", function() {
+		let characterNameInput = document.getElementById("characterNameInput");
+		let characterName = characterNameInput.value;
+		if (characterName) {
+			player1.setName(characterName);
+		} else {
+			player1.setName("Player");
+		}
+		hideNameInput();
+		showPlayBtn();
+		generateStartBtn();
+		console.log(player1.getName());
 
-let nextBtn = document.getElementById("continue-btn");
-nextBtn.addEventListener("click", function() {
-	let characterNameInput = document.getElementById("characterNameInput");
-	let characterName = characterNameInput.value;
-	if (characterName) {
-		player1.setName(characterName);
-	} else {
-		player1.setName("Player");
-	}
-
-	hideNameInput();
-	showPlayBtn();
-	generateStartBtn();
-	console.log(player1.getName());
-
-});
+	});
+}
 
 const startGame = function() {
 	showGame();
@@ -257,7 +264,7 @@ const startGame = function() {
 	// add event listener to attackBtn
 	attackBtn.addEventListener("click", function() {
 		// if monster 1's health is greater than 0
-		if(monster1.getHealth() > 0) {
+		if(monster1.getHealth() > 0 || player1.getHealth() > 0) {
 			// player attack monster
 			player1.attack(monster1);
 			// disable attackBtn while monster attacks
@@ -278,8 +285,11 @@ const startGame = function() {
 					// set 2sec delay to reactivate player attack button
 					setTimeout(function(){
 						// reactivate attackBtn
-						attackBtn.disabled = false;
-						attackBtn.className = "attack-btn"
+						if (player1.getHealth() > 0 && monster1.getHealth() > 0) {
+							attackBtn.disabled = false;
+							attackBtn.className = "attack-btn";
+						}
+						checkWin();
 					}, 2000);
 			}, 2000);
 		} else {
@@ -306,6 +316,24 @@ const generateStartBtn = function() {
 	});
 }
 
+const checkWin = function() {
+	if (player1.getHealth() <= 0 && monster1.getHealth() >= 0) {
+		let winTextNode = document.createElement("p");
+		winTextNode.className="winText";
+		winTextNode.innerHTML = (monster1.getName() + " Wins!!!");
+		winTextNode.style.color = "red";
+		// append playerDamageNode to div with id #damage
+		document.getElementById("damage").appendChild(winTextNode);
+	} else if (player1.getHealth() >= 0 && monster1.getHealth() <= 0) {
+		let winTextNode = document.createElement("p");
+		winTextNode.className="winText";
+		winTextNode.innerHTML = (player1.getName() + " Wins!!!");
+		winTextNode.style.color = "#ff0aee";
+		// append playerDamageNode to div with id #damage
+		document.getElementById("damage").appendChild(winTextNode);
+	}
+}
+nextBtn();
 let player1 = createPlayer();
 let monster1 = createMonster();
 

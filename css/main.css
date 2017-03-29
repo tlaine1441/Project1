@@ -260,6 +260,9 @@ nav h1 {
 	display: inline-block;
 }
 
+.winText {
+	font-size: 50px;
+}
 
 .hidden-div {
 	display: none;
