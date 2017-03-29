@@ -115,20 +115,42 @@ nav h1 {
 	margin: 0;
 }
 
+.player {
+	background: url("../images/characters/hero.png");
+	background-size: 600px 300px;
+	width: 600px;
+	height: 300px;
+	position: absolute;
+	top: 300px;
+	left: 10px;
+}
+
+.enemy {
+	background: url("../images/characters/evil.png");
+	background-size: 300px 385px;
+	width: 300px;
+	height: 385px;
+	position: absolute;
+	bottom: 200px;
+	left: 950px;
+}
+
 .damage-container {
-	margin: 0 auto;
 	display: block;
 	width: 400px;
 	text-align: center;
+	margin: 0 auto;
 }
 
 .player-damage {
 	font-size: 50px;
-	color: green;
+	font-weight: 700;
+	color: #ff0aee;
 }
 
 .enemy-damage {
 	font-size: 50px;
+	font-weight: 700;
 	color: red;
 }
 

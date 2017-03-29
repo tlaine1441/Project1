@@ -192,7 +192,7 @@ const displayPlayerDamage = function() {
 	// create damge string to put inside damage node
 	let playerDamageInfo = (player1.getLastAttack());
 	// pass damage info string into playerDamageNode
-	playerDamageNode.innerHTML = playerDamageInfo;
+	playerDamageNode.innerHTML = (playerDamageInfo + " Damage Delt");
 	// append playerDamageNode to div with id #damage
 	document.getElementById("damage").appendChild(playerDamageNode);
 	setTimeout(function() {
@@ -209,7 +209,7 @@ const displayEnemyDamage = function() {
 	let enemyDamageInfo = (monster1.getLastAttack());
 	console.log(monster1.getLastAttack());
 	// pass damage info string into playerDamageNode
-	enemyDamageNode.innerHTML = enemyDamageInfo;
+	enemyDamageNode.innerHTML = (enemyDamageInfo + " Damage Recieved");
 	// append playerDamageNode to div with id #damage
 	document.getElementById("damage").appendChild(enemyDamageNode);
 	setTimeout(function() {
