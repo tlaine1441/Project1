@@ -2,7 +2,9 @@ console.log("up and running");
 
 // Player Constructor
 const Player = function(name, weapon, hitPoints, health) {
-	this.name = name || localStorage.getItem("playerName") || "Player";
+	this.name = localStorage.getItem("name") || "Player";
+	this.xp = parseInt(localStorage.getItem("xp")) || 1;
+	this.level = parseInt(localStorage.getItem("level")) || 1;
 	this.weapon = weapon || "sword";
 	this.hitPoints = hitPoints|| 5;
 	this.health = health || 20;
@@ -34,6 +36,14 @@ Player.prototype.getLastAttack = function() {
 	return this.lastAttack;
 }
 
+Player.prototype.getXp = function() {
+	return this.xp;
+}
+
+Player.prototype.getLevel = function() {
+	return this.level;
+}
+
 // Setter methods
 Player.prototype.setName = function(name) {
 	this.name = name;
@@ -53,6 +63,14 @@ Player.prototype.setHealth = function(health) {
 
 Player.prototype.setLastAttack = function(lastAttack) {
 	this.lastAttack = lastAttack;
+}
+
+Player.prototype.setXp = function(xp) {
+	this.xp = xp;
+}
+
+Player.prototype.setLevel = function(level) {
+	this.level = level;
 }
 
 Player.prototype.attack = function(monster) {
@@ -168,6 +186,49 @@ const createMonster = function() {
 	return new Monster(monsterNames[randomGenerator]);
 }
 
+const updateXp = function() {
+	let currentXp = player1.getXp();
+	let newXp = currentXp + (10 * Math.pow("2", player1.getLevel()));
+	let toLevel = 100 * Math.floor(Math.pow("2.1", player1.getLevel()))
+	let totalXp = document.getElementById("xp");
+	totalXp.innerHTML = "XP: " + currentXp + "/" + toLevel;
+	localStorage.setItem("xp", player1.getXp());
+}
+
+const resetXp = function() {
+	player1.setXp(1);
+	updateXp();
+}
+
+const updateLevel = function() {
+	let level = document.getElementById("level");
+	level.innerHTML = "Level: " + player1.getLevel();
+	localStorage.setItem("level", player1.getLevel());
+}
+
+
+const increaseXp = function() {
+	let currentXp = player1.getXp();
+	let newXp = currentXp + (10 * Math.pow("2", player1.getLevel()));
+	let toLevel = 100 * Math.floor(Math.pow("2.1", player1.getLevel()))
+	player1.setXp(newXp);
+	let xpTextNode = document.createElement("p");
+		xpTextNode.className="xpText";
+		xpTextNode.innerHTML = ("XP: " + newXp);
+		document.getElementById("damage").appendChild(xpTextNode);
+		setTimeout(function() {
+			xpTextNode.remove();
+		}, 2000);
+		updateXp();
+		updateLevel();
+	if (player1.getXp() >= toLevel) {
+		player1.setLevel(player1.getLevel() + 1);
+		updateXp();
+		updateLevel();
+		resetXp();
+	}
+}
+
 const hideNameInput = function() {
     document.getElementById('name-container').className='hidden-div';  
 }
@@ -188,19 +249,24 @@ const showGame = function() {
 	 player1.namePlate();
 	 monster1.namePlate();
 	 saveGameAddClick();
+	 updateLevel();
+	 updateXp();
 }
 
 const countDown = function() {
 	let countDownDiv = document.getElementById("countdown");
 	let count = 3;
 	countDownDiv.innerHTML = 4;
-	setInterval(function() {
+	let countDown = setInterval(function() {
 		if (count > 0) {
 		 countDownDiv.innerHTML = count;
 		} else {
 		countDownDiv.innerHTML = "";
 		}
 		count--;
+		if (count < 0) {
+			clearInterval(countDown);
+		}
 	}, 1000);
 }
 
@@ -244,6 +310,7 @@ const nextBtn = function() {
 			let characterName = characterNameInput.value;
 			if (characterName) {
 				player1.setName(characterName);
+				localStorage.setItem("name", characterName);
 			} else {
 				player1.setName("Player");
 			}
@@ -257,6 +324,8 @@ const nextBtn = function() {
 
 const saveGame = function() {
 	localStorage.setItem('playerName', player1.getName());
+	localStorage.setItem("xp", player1.getXp());
+	localStorage.setItem("level", player1.getLevel());
 }
 
 const saveGameAddClick = function() {
@@ -313,7 +382,7 @@ const startGame = function() {
 const generateStartBtn = function() {
 	let div = document.getElementById("ready-to-play-content");
 	let h1 = document.createElement('h1');
-	h1.innerHTML = (player1.name + " are you ready?");
+	h1.innerHTML = (player1.getName() + " are you ready?");
 	div.appendChild(h1);
 	let button = document.createElement("button");
 	button.innerHTML = "Play";
@@ -342,10 +411,18 @@ const checkWin = function() {
 		winTextNode.style.color = "#ff0aee";
 		// append playerDamageNode to div with id #damage
 		document.getElementById("damage").appendChild(winTextNode);
+		increaseXp();
 	}
 }
 
-nextBtn();
+
 let player1 = createPlayer();
 let monster1 = createMonster();
 
+if (localStorage.getItem("name") === "Player" || !localStorage.getItem("name")) {
+		nextBtn();
+} else {
+	hideNameInput();
+	showPlayBtn();
+	generateStartBtn();
+}
