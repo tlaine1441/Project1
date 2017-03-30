@@ -294,6 +294,15 @@ nav h1 {
 	margin: 15px 10px;
 }
 
+.play-again-btn {
+	font-size: 25px;
+	padding: 10px;
+	color: #ff0aee;
+	background: transparent;
+	border: 1px solid #ff0aee;
+	border-radius: 4px;	
+}
+
 .hidden-div {
 	display: none;
 }
