@@ -1,6 +1,7 @@
 * {
 	box-sizing: border-box;
 	outline: none;
+	cursor: pointer;
 }
 
 body {
@@ -195,6 +196,10 @@ nav h1 {
 	border: 3px solid #333;
 }
 
+.attack-btn:hover {
+	border: 3px solid #555;
+}
+
 .countdown {
 	font-size: 44px;
 }
@@ -262,6 +267,14 @@ nav h1 {
 
 .winText {
 	font-size: 50px;
+}
+
+.save p {
+	padding-bottom: 10px;
+}
+
+.save p:hover {
+	border-bottom: 2px solid #ff0aee;
 }
 
 .hidden-div {

@@ -2,7 +2,7 @@ console.log("up and running");
 
 // Player Constructor
 const Player = function(name, weapon, hitPoints, health) {
-	this.name = name || "Player";
+	this.name = name || localStorage.getItem("playerName") || "Player";
 	this.weapon = weapon || "sword";
 	this.hitPoints = hitPoints|| 5;
 	this.health = health || 20;
@@ -187,6 +187,7 @@ const showGame = function() {
 	 body.style.background = "url('images/background/background.jpg') no-repeat center center fixed"; 
 	 player1.namePlate();
 	 monster1.namePlate();
+	 saveGameAddClick();
 }
 
 const countDown = function() {
@@ -215,7 +216,7 @@ const displayPlayerDamage = function() {
 	setTimeout(function() {
 		playerDamageNode.remove();
 	}, 2000);
-console.log(player1.getName() + " attacks: " + monster1.getName() +  " health: " + monster1.getHealth());
+	console.log(player1.getName() + " attacks: " + monster1.getName() +  " health: " + monster1.getHealth());
 }
 
 const displayEnemyDamage = function() {
@@ -237,21 +238,31 @@ const displayEnemyDamage = function() {
 }
 
 const nextBtn = function() {
+		let nextBtn = document.getElementById("continue-btn");
+		nextBtn.addEventListener("click", function() {
+			let characterNameInput = document.getElementById("characterNameInput");
+			let characterName = characterNameInput.value;
+			if (characterName) {
+				player1.setName(characterName);
+			} else {
+				player1.setName("Player");
+			}
+			hideNameInput();
+			showPlayBtn();
+			generateStartBtn();
+			console.log(player1.getName());
 
-	let nextBtn = document.getElementById("continue-btn");
-	nextBtn.addEventListener("click", function() {
-		let characterNameInput = document.getElementById("characterNameInput");
-		let characterName = characterNameInput.value;
-		if (characterName) {
-			player1.setName(characterName);
-		} else {
-			player1.setName("Player");
-		}
-		hideNameInput();
-		showPlayBtn();
-		generateStartBtn();
-		console.log(player1.getName());
+		});
+}
 
+const saveGame = function() {
+	localStorage.setItem('playerName', player1.getName());
+}
+
+const saveGameAddClick = function() {
+	let saveBtn = document.getElementById("save");
+	saveBtn.addEventListener("click", function() {
+		saveGame();
 	});
 }
 
@@ -333,6 +344,7 @@ const checkWin = function() {
 		document.getElementById("damage").appendChild(winTextNode);
 	}
 }
+
 nextBtn();
 let player1 = createPlayer();
 let monster1 = createMonster();
