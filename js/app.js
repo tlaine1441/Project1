@@ -275,6 +275,7 @@ const countDown = function() {
 		count--;
 		if (count < 0) {
 			clearInterval(countDown);
+			countDownDiv.className = "countdown hidden-div";
 		}
 	}, 1000);
 }
