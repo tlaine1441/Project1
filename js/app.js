@@ -265,6 +265,7 @@ const countDown = function() {
 	let countDownDiv = document.getElementById("countdown");
 	let count = 3;
 	countDownDiv.innerHTML = 4;
+	countDownDiv.className = "countdown show-countdown";
 	let countDown = setInterval(function() {
 		if (count > 0) {
 		 countDownDiv.innerHTML = count;
@@ -357,7 +358,7 @@ const startGame = function() {
 			// disable attackBtn while monster attacks
 			countDown();
 			attackBtn.disabled = true;
-			attackBtn.className = "attack-btn grey-out"
+			attackBtn.className = "attack-btn grey-out";
 			displayPlayerDamage();
 			console.log(player1.getName() + " attacks: " + monster1.getName() +  " health: " + monster1.getHealth());
 				// set 2 sec timeout for monster attack delay

@@ -202,6 +202,13 @@ nav h1 {
 
 .countdown {
 	font-size: 44px;
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	color: #444;
+	z-index: 5;
+	text-align: center;
+	padding-top: 30px;
 }
 
 .player-health-bar {
@@ -311,8 +318,12 @@ nav h1 {
 	display: flex;
 }
 
+.show-countdown {
+	display: block;
+}
+
 .grey-out {
 	opacity: 0.4;
-    filter: alpha(opacity=40)
+    filter: alpha(opacity=40);
 }
 
