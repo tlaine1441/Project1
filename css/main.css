@@ -6,41 +6,40 @@
 
 body {
 	background: #333;
-	/*background: url('../images/background/background.jpg') no-repeat center center fixed;*/
  	background-size: cover;
+ 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	margin: 0;
-	padding: 0;
 	overflow: hidden;
-	font-family: 'Orbitron', sans-serif;
+	padding: 0;
 }
 
 .name-container {
-	text-align: center;
-	width: 50%;
-	margin: 350px auto;
+	align-items: center;
 	display: flex;
-  	justify-content: center;
-  	align-items: center;
+	justify-content: center;
+	margin: 350px auto;
+  	text-align: center;
+  	width: 50%;
 }
 
 .name-container input {
 	background: #333;
 	border: none;
-	font-size: 25px;
-	padding: 5px;
 	border-bottom: 1px solid lime;
-	margin-right: 10px;
 	color: lime;
+	font-size: 25px;
+	margin-right: 10px;
+	padding: 5px;
 }
 
 .name-container button {
-	font-size: 25px;
-	padding: 10px;
-	color: rgba(28, 255, 28, 1);
 	background: #333;
 	border: 1px solid rgba(28, 255, 28, 1);
 	border-radius: 4px;
+	color: rgba(28, 255, 28, 1);
+	font-size: 25px;
+	padding: 10px;
 }
 
 .name-container button:hover {
@@ -49,35 +48,36 @@ body {
 }
 
 .name-container button:active {
-	color: #333;
 	background: rgba(28, 255, 28, 1);
 	border: 1px solid rgba(28, 255, 28, 1);
+	color: #333;
 }
 
 .ready-to-play {
-	text-align: center;
-	width: 50%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
 	margin: 300px auto;
 	padding: 0;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+	text-align: center;
+  	width: 50%;
 }
+
 .ready-to-play-wrapper {
 	display: block;
-	width: 100%;
 	padding: 0;
+	width: 100%;
 }
 
 .ready-to-play button {
-	font-size: 25px;
-	padding: 10px 40px;
-	color: rgba(28, 255, 28, 1);
 	background: #333;
 	border: 1px solid rgba(28, 255, 28, 1);
 	border-radius: 4px;
+	color: rgba(28, 255, 28, 1);
 	display: block;
+	font-size: 25px;
 	margin: 0 auto;
+	padding: 10px 40px;
 }
 
 .ready-to-play button:hover {
@@ -86,30 +86,30 @@ body {
 }
 
 .ready-to-play button:active {
-	color: #333;
 	background: rgba(28, 255, 28, 1);
 	border: 1px solid rgba(28, 255, 28, 1);
+	color: #333;
 }
 
 .ready-to-play h1 {
+	color: #ddd;
 	display: block;
 	font-size: 60px;
-	color: #ddd;
 	margin-top: 0;
 }
 
 main {
 	height: 100%;
-	width: 100%;
 	margin: 0;
+	width: 100%;
 }
 
 nav {
-	margin: 0;
 	background: rgba(51, 51, 51, .3);
-	width: 100%;
 	height: 80px;
+	margin: 0;
 	text-align: center;
+	width: 100%;
 }
 
 nav h1 {
@@ -119,81 +119,81 @@ nav h1 {
 .player {
 	background: url("../images/characters/hero.png");
 	background-size: 600px 300px;
-	width: 600px;
 	height: 300px;
+	left: 10px;
 	position: absolute;
 	top: 300px;
-	left: 10px;
+	width: 600px;
 }
 
 .enemy {
 	background: url("../images/characters/evil.png");
 	background-size: 300px 385px;
-	width: 300px;
-	height: 385px;
-	position: absolute;
 	bottom: 200px;
+	height: 385px;
 	left: 950px;
+	position: absolute;
+	width: 300px;
 }
 
 .damage-container {
 	display: block;
-	width: 400px;
-	text-align: center;
 	margin: 0 auto;
+	text-align: center;
+	width: 400px;
 }
 
 .player-damage {
+	color: #ff0aee;
 	font-size: 50px;
 	font-weight: 700;
-	color: #ff0aee;
 }
 
 .enemy-damage {
+	color: red;
 	font-size: 50px;
 	font-weight: 700;
-	color: red;
 }
 
 .title {
-	margin: 0 auto;
-	display: inline-block;
 	color: #ff0aee;
+	display: inline-block;
 	font-size: 40px;
 	letter-spacing: 1px;
-	width: 100px;
+	margin: 0 auto;
 	padding-top: 15px;
+	width: 100px;
 }
 
  .save {
+ 	color: #ff0aee;
  	display: inline-block;
- 	height: 100px;
  	float: right;
+ 	height: 100px;
  	padding-top: 15px;
  	padding-right: 25px;
- 	color: #ff0aee;
  }
 
 .attack-bar {
-	display: block;
-	height: 100px;
-	position: fixed;
-    bottom: 0;
-    left: 50%;
-	transform: translateX(-50%);
-    width: 565px;
+    background: url("../images/textures/spell.jpg");
     border: 5px solid grey;
     border-radius: 3px;
-    background: url("../images/textures/spell.jpg");
+    bottom: 0;
+	display: block;
+	height: 100px;
+	left: 50%;
+	position: fixed;
+	transform: translateX(-50%);
+    width: 565px;
 }
 
 .attack-btn {
 	background: url("../images/attack/attack.png");
 	background-size: 85px 85px;
 	background-position: center;
-	width: 90px;
-	height: 90px;
 	border: 3px solid #333;
+	height: 90px;
+	width: 90px;
 }
 
 .attack-btn:hover {
@@ -201,28 +201,27 @@ nav h1 {
 }
 
 .countdown {
-	font-size: 44px;
-	position: absolute;
-	width: 90px;
-	height: 90px;
 	color: #444;
-	z-index: 5;
-	text-align: center;
+	font-size: 44px;
+	height: 90px;
 	padding-top: 30px;
+	position: absolute;
+	text-align: center;
+	width: 90px;
+	z-index: 5;
 }
 
 .player-health-bar {
+	background: green;
+    border: 3px solid #333;
+    border-radius: 30px;
+    bottom: 100px;
 	display: block;
 	height: 50px;
+	left: 35%;
 	position: fixed;
-    bottom: 100px;
-    left: 35%;
 	transform: translateX(-35%);
     width: 200px;
-    border: 5px solid #ff4040;
-    background: green;
-    border-radius: 30px;
-    border: 3px solid #333;
     text-align: center;
 }
 
@@ -231,41 +230,41 @@ nav h1 {
 }
 
 .player-name {
+    bottom: 150px;
+	color: #ff0aee;
 	display: block;
 	height: 50px;
-	color: #ff0aee;
+	left: 35%;
 	position: fixed;
-    bottom: 150px;
-    left: 35%;
 	transform: translateX(-35%);
-    width: 200px;
     text-align: center;
+    width: 200px;
 }
 
 .enemy-name {
+	bottom: 150px;
+	color: red;
 	display: block;
 	height: 50px;
-	color: red;
+	left: 65%;
 	position: fixed;
-    bottom: 150px;
- 	left: 65%;
+ 	text-align: center;
 	transform: translateX(-65%);
     width: 200px;
-    text-align: center;
 }
 
 .enemy-health-bar{
+	background: #ff4040;
+    border: 3px solid #333;
+    border-radius: 30px;
+	bottom: 100px;
 	display: block;
 	height: 50px;
+	left: 65%;
 	position: fixed;
-    bottom: 100px;
-    left: 65%;
-	transform: translateX(-65%);
-    width: 200px;
-    background: #ff4040;
-    border-radius: 30px;
-    border: 3px solid #333;
     text-align: center;
+    transform: translateX(-65%);
+    width: 200px;
 }
 
 .enemy-health-bar p {
@@ -291,9 +290,9 @@ nav h1 {
 
 .level-container {
 	float: right;
-	width: 200px;
-	text-align: center;
 	padding-top: 10px;
+	text-align: center;
+	width: 200px;
 }
 
 .level-container p {
@@ -302,12 +301,12 @@ nav h1 {
 }
 
 .play-again-btn {
-	font-size: 25px;
-	padding: 10px;
-	color: #ff0aee;
 	background: transparent;
 	border: 1px solid #ff0aee;
 	border-radius: 4px;	
+	color: #ff0aee;
+	font-size: 25px;
+	padding: 10px;
 }
 
 .hidden-div {
@@ -323,7 +322,6 @@ nav h1 {
 }
 
 .grey-out {
+	filter: alpha(opacity=40);
 	opacity: 0.4;
-    filter: alpha(opacity=40);
 }
-
