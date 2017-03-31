@@ -179,12 +179,13 @@ Monster.prototype.namePlate = function() {
 	namePlate.appendChild(name);
 }
 
+// Creates player
 const createPlayer = function() {
-	//let player = new Player(chooseName(), chooseWeapon());
 	let player = new Player();
 	return player;
 }
 
+// Create Monster
 const createMonster = function() {
 	const monsterNames = ["Grub", "Nightscream", "Dreamling", "Germspawn", "Morncreep", "The Electric Ooze"];
 	let randomGenerator = Math.floor(Math.random() * (5 - 0)) + 0;
@@ -192,6 +193,7 @@ const createMonster = function() {
 	return new Monster(monsterNames[randomGenerator]);
 }
 
+// Updates Xp
 const updateXp = function() {
 	let currentXp = player1.getXp();
 	let newXp = currentXp + (10 * Math.pow("2", player1.getLevel()));
@@ -201,18 +203,21 @@ const updateXp = function() {
 	localStorage.setItem("xp", player1.getXp());
 }
 
+// Resets xp when you level up so you do not carry xp into next level
 const resetXp = function() {
 	player1.setXp(1);
 	updateXp();
 }
 
+// Updates level when xp is great enough
 const updateLevel = function() {
 	let level = document.getElementById("level");
 	level.innerHTML = "Level: " + player1.getLevel();
 	localStorage.setItem("level", player1.getLevel());
 }
 
-
+// Increases player xp as well calls necessary functions to update xp approperately
+// Also appends xp to UI
 const increaseXp = function() {
 	let currentXp = player1.getXp();
 	let newXp = currentXp + (10 * Math.pow("2", player1.getLevel()));
@@ -237,6 +242,7 @@ const increaseXp = function() {
 	}
 }
 
+// Hide and Show functions
 const hideNameInput = function() {
     document.getElementById('name-container').className='hidden-div';  
 }
@@ -261,6 +267,7 @@ const showGame = function() {
 	 updateXp();
 }
 
+// Countdown function displayer cool down on attack spell
 const countDown = function() {
 	let countDownDiv = document.getElementById("countdown");
 	let count = 3;
@@ -280,6 +287,7 @@ const countDown = function() {
 	}, 1000);
 }
 
+// Appends player damage to UI
 const displayPlayerDamage = function() {
 	let playerDamageNode = document.createElement("p");
 	playerDamageNode.className="player-damage";
@@ -295,6 +303,7 @@ const displayPlayerDamage = function() {
 	console.log(player1.getName() + " attacks: " + monster1.getName() +  " health: " + monster1.getHealth());
 }
 
+// Appends enemy damage to UI
 const displayEnemyDamage = function() {
 	// create p node to append monster damage to dom
 	let enemyDamageNode = document.createElement("p");
@@ -313,6 +322,9 @@ const displayEnemyDamage = function() {
 
 }
 
+// Displays and adds click to character name selection screen
+// Also sets character name to what user types into input
+// Sets Player to default if no name is entered
 const nextBtn = function() {
 		let nextBtn = document.getElementById("continue-btn");
 		nextBtn.addEventListener("click", function() {
@@ -331,12 +343,14 @@ const nextBtn = function() {
 		});
 }
 
+// Saves user data to local storage
 const saveGame = function() {
 	localStorage.setItem('name', player1.getName());
 	localStorage.setItem("xp", player1.getXp());
 	localStorage.setItem("level", player1.getLevel());
 }
 
+// Adds click to save button
 const saveGameAddClick = function() {
 	let saveBtn = document.getElementById("save");
 	saveBtn.addEventListener("click", function() {
@@ -344,6 +358,7 @@ const saveGameAddClick = function() {
 	});
 }
 
+// Main Start game function 
 const startGame = function() {
 	showGame();
 	player1.displayHealth();
@@ -388,6 +403,7 @@ const startGame = function() {
 	});
 }
 
+// Generates start button and asks user "by name" if they are ready to battle
 const generateStartBtn = function() {
 	let div = document.getElementById("ready-to-play-content");
 	let h1 = document.createElement('h1');
@@ -400,11 +416,12 @@ const generateStartBtn = function() {
 
 	let playBtn = document.getElementById("play-btn");
 	playBtn.addEventListener("click", function() {
-	hidePlayBtn();
-	startGame();
+		hidePlayBtn();
+		startGame();
 	});
 }
 
+// Checks win condition if player or enemy dies
 const checkWin = function() {
 	var playAgainBtn = document.createElement("button");
 	playAgainBtn.innerHTML = "Play Again";
@@ -416,6 +433,10 @@ const checkWin = function() {
 		winTextNode.style.color = "red";
 		// append playerDamageNode to div with id #damage
 		document.getElementById("damage").appendChild(winTextNode);
+		document.getElementById("damage").appendChild(playAgainBtn);
+		playAgainBtn.addEventListener("click", function() {
+			playAgain();
+		})
 	} else if (player1.getHealth() >= 0 && monster1.getHealth() <= 0) {
 		let winTextNode = document.createElement("p");
 		winTextNode.className="winText";
@@ -431,13 +452,16 @@ const checkWin = function() {
 	}
 }
 
+// Reloads 
 const playAgain = function() {
 	location.reload(false);
 }
 
+// Creates instance of monster and player objects
 var player1 = createPlayer();
 var monster1 = createMonster();
 
+// Test if user has saved
 if (localStorage.getItem("name") === "Player" || !localStorage.getItem("name")) {
 	nextBtn();
 } else {
