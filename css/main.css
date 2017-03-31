@@ -14,6 +14,8 @@ body {
 	padding: 0;
 }
 
+/* Name Container */
+
 .name-container {
 	align-items: center;
 	display: flex;
@@ -52,6 +54,8 @@ body {
 	border: 1px solid rgba(28, 255, 28, 1);
 	color: #333;
 }
+
+/* Ready to play styles */
 
 .ready-to-play {
 	align-items: center;
@@ -97,6 +101,10 @@ body {
 	font-size: 60px;
 	margin-top: 0;
 }
+
+/*									*/
+/* Main Game Styles */
+/*									*/
 
 main {
 	height: 100%;
@@ -175,16 +183,16 @@ nav h1 {
  }
 
 .attack-bar {
-    background: url("../images/textures/spell.jpg");
-    border: 5px solid grey;
-    border-radius: 3px;
-    bottom: 0;
+	background: url("../images/textures/spell.jpg");
+	border: 5px solid grey;
+	border-radius: 3px;
+	bottom: 0;
 	display: block;
 	height: 100px;
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
-    width: 565px;
+	width: 565px;
 }
 
 .attack-btn {
@@ -308,6 +316,8 @@ nav h1 {
 	font-size: 25px;
 	padding: 10px;
 }
+
+/* 	Hidden and grey out styles  */
 
 .hidden-div {
 	display: none;
