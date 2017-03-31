@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Axxiom</title>
-	<link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body id="body">
-	<div id="name-container" class="name-container show-div">
-		<input id="characterNameInput" type="text" placeholder="Character Name">
-		<button id="continue-btn">Continue</button>
-	</div>
-
-	<div id="ready-to-play" class="ready-to-play hidden-div">
-		<div id="ready-to-play-content" class="ready-to-play-wrapper">
+	<head>
+		<title>Axxiom</title>
+		<link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body id="body">
+		<!-- Displays the name selection screen -->
+		<div id="name-container" class="name-container show-div">
+			<input id="characterNameInput" type="text" placeholder="Character Name">
+			<button id="continue-btn">Continue</button>
 		</div>
-	</div>
-
+		<!-- Displays the ready to play screen -->
+		<div id="ready-to-play" class="ready-to-play hidden-div">
+			<div id="ready-to-play-content" class="ready-to-play-wrapper"></div>
+		</div>
+		<!-- Displays the nav/title bar when game starts -->
 		<nav id="nav" class="hidden-div">
 			<div class="title">
 				<h1>Axxiom</h1>
 			</div>
 			<div id="save" class="save"><p>Save</p></div>
 		</nav>
+		<!-- Game Container -->
 		<div id="game" class="game hidden-div">
-		<main id="main-game">
-		<div id="damage-container" class="damage-container" >
-			<div id="damage"></div>
-		</div>
-		<div id="player-health-bar" class="player-health-bar">
-		<p id="player-health"></p><p> / </p><p id="player-initial-health"></p>
-		</div>
-		<div id="enemy-health-bar" class="enemy-health-bar">
-		<p id="enemy-health"></p><p> / </p><p id="enemy-initial-health"></p>
-		</div>
-		<section id="attack-bar" class="attack-bar">
-			<div id="attack-btn" class="attack">
-				<div id="countdown" class="countdown hidden-div"></div>
-				<button id="attack" class="attack-btn"></button>
-				<div id="level-container" class="level-container"><p id="level">Level:</p><p id="xp">XP:</p></div>
-			</div>
-		</section>
-		<!--<div id="attack-btn-container" >
-	enemyInitialHealth.textContent = this.baseHealth;
-			<button id="attack">Attack</button>
-		</div>-->
-		
-	</main>	
-	<div id="player-name" class="player-name"></div>
-	<div id="player" class="player"></div>	
-	<div id="enemy-name" class="enemy-name"></div>
-	<div id="enemy" class="enemy"></div>
-	</div>
-	<script type="text/javascript" src="js/app.js"></script>
-</body>
+			<!-- Displays the main bulk of game -->
+			<main id="main-game">
+				<!-- Displays the area where damage is displayed -->
+				<div id="damage-container" class="damage-container" >
+					<div id="damage"></div>
+				</div>
+				<!-- Displays the players health bar -->
+				<div id="player-health-bar" class="player-health-bar">
+					<p id="player-health"></p><p> / </p><p id="player-initial-health"></p>
+				</div>
+				<!-- Displays the enemies health bar -->
+				<div id="enemy-health-bar" class="enemy-health-bar">
+					<p id="enemy-health"></p><p> / </p><p id="enemy-initial-health"></p>
+				</div>
+				<!-- Displays the attack / Spell bar -->
+				<section id="attack-bar" class="attack-bar">
+					<div id="attack-btn" class="attack">
+						<!-- Displays the countdown when users click attack -->
+						<div id="countdown" class="countdown hidden-div"></div>
+							<!-- Attack Button -->
+							<button id="attack" class="attack-btn"></button>
+							<!-- Displays the players xp and level -->
+						<div id="level-container" class="level-container"><p id="level">Level:</p><p id="xp">XP:</p></div>
+					</div>
+				</section> <!-- End #attack-bar -->
+			</main>	<!-- End main -->
+			<div id="player-name" class="player-name"></div>
+			<div id="player" class="player"></div>	
+			<div id="enemy-name" class="enemy-name"></div>
+			<div id="enemy" class="enemy"></div>
+		</div> <!-- End #game -->
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
 </html>
